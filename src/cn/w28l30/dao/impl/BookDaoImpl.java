@@ -8,10 +8,14 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
+import cn.w28l30.dao.BookDao;
 import cn.w28l30.domain.Book;
 import cn.w28l30.utils.JdbcUtils;
 
-public class BookDaoImpl {
+public class BookDaoImpl implements BookDao {
+	/* (non-Javadoc)
+	 * @see cn.w28l30.dao.impl.BookDao#add(cn.w28l30.domain.Book)
+	 */
 	public void add(Book b) {
 		try {
 			QueryRunner runner = new QueryRunner();
@@ -25,6 +29,9 @@ public class BookDaoImpl {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see cn.w28l30.dao.impl.BookDao#find(java.lang.String)
+	 */
 	public Book find(String id) {
 		try {
 			QueryRunner runner = new QueryRunner();
@@ -36,6 +43,9 @@ public class BookDaoImpl {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see cn.w28l30.dao.impl.BookDao#pageQuery(int, int, java.lang.String, java.lang.Object)
+	 */
 	public QueryResult pageQuery(int startIndex, int pageSize, String where, Object param) {
 		try {
 			QueryRunner runner = new QueryRunner();
@@ -55,6 +65,17 @@ public class BookDaoImpl {
 				int totalRecord = ((Long)runner.query(conn, sql, params, new ScalarHandler<>())).intValue();
 				return new QueryResult(totalRecord, bookList);
 			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public List getAll() {
+		try {
+			QueryRunner runner = new QueryRunner();
+			Connection conn = JdbcUtils.getConnection();
+			String sql = "select * from book";
+			return runner.query(conn, sql, new BeanListHandler<>(Book.class));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

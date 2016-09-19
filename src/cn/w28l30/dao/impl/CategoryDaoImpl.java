@@ -7,10 +7,14 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import cn.w28l30.dao.CategoryDao;
 import cn.w28l30.domain.Category;
 import cn.w28l30.utils.JdbcUtils;
 
-public class CategoryDaoImpl {
+public class CategoryDaoImpl implements CategoryDao {
+	/* (non-Javadoc)
+	 * @see cn.w28l30.dao.impl.CategoryDao#add(cn.w28l30.domain.Category)
+	 */
 	public void add(Category c) {
 		try {
 			Connection conn = JdbcUtils.getConnection();
@@ -23,6 +27,9 @@ public class CategoryDaoImpl {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see cn.w28l30.dao.impl.CategoryDao#find(java.lang.String)
+	 */
 	public Category find(String id) {
 		try {
 			Connection conn = JdbcUtils.getConnection();
@@ -34,6 +41,9 @@ public class CategoryDaoImpl {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see cn.w28l30.dao.impl.CategoryDao#getAll()
+	 */
 	public List<Category> getAll() {
 		try {
 			Connection conn = JdbcUtils.getConnection();

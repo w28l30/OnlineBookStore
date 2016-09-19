@@ -20,7 +20,7 @@ public class QueryResult {
 	public void setTotalRecord(int totalRecord) {
 		this.totalRecord = totalRecord;
 	}
-	public List<Book> getBookList() {
+	public List getBookList() {
 		return bookList;
 	}
 	public void setBookList(List<Book> bookList) {
