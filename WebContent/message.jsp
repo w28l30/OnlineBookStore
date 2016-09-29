@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Go to frontEnd</title>
+<title>Insert title here</title>
 </head>
 <body>
-    <jsp:forward page="/IndexServlet"></jsp:forward>
+
 </body>
 </html>

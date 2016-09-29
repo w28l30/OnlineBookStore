@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Bookstore Backend Management</title>
 </head>
 <frameset rows="18%, *">
-	<frame src="${pageContext.request.contextPath/manager/head.jsp}"
+	<frame src="${pageContext.request.contextPath}/manager/head.jsp"
 		name="head">
 	<frameset cols="15%, *">
-		<frame src="${pageContext.request.contextPath/manager/left.jsp}"
+		<frame src="${pageContext.request.contextPath}/manager/left.jsp"
 			name="left">
-		<frame src="#" name="right">
+		<frame src="" name="right">
 	</frameset>
 
 </frameset>

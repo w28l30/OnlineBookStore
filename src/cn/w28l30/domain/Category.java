@@ -1,9 +1,9 @@
 package cn.w28l30.domain;
 
 public class Category {
-	private String id;
-	private String name;
-	private String description;
+	public String id;
+	public String name;
+	public String description;
 	public String getId() {
 		return id;
 	}

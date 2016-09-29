@@ -38,7 +38,8 @@ public class PageBean {
 	}
 
 	public int gettotalPage() {
-		return (this.totalRecord - 1) / this.pageSize + 1;
+		this.totalPage = (this.totalRecord - 1) / this.pageSize + 1;
+		return this.totalPage;
 	}
 
 	public int getCurrentPage() {
@@ -58,10 +59,10 @@ public class PageBean {
 	}
 
 	public int[] getPageBar() {
-		int startPage = 0;
-		int endPage = 0;
+		int startPage;
+		int endPage;
 
-		if (this.totalPage < 10) {
+		if (this.totalPage <= 10) {
 			startPage = 1;
 			endPage = this.totalPage;
 		} else {
@@ -80,11 +81,11 @@ public class PageBean {
 			}
 		}
 
-		int[] pageBar = new int[endPage - startPage + 1];
+		System.out.println(startPage + " " + endPage);
+		this.pageBar = new int[endPage - startPage + 1];
 		for (int i = startPage; i <= endPage; i++) {
-			pageBar[i - startPage] = i;
+			this.pageBar[i - startPage] = i;
 		}
-
 		return pageBar;
 	}
 }

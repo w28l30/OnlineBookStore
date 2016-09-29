@@ -54,15 +54,15 @@ public class BookDaoImpl implements BookDao {
 				String sql = "select * from book limit ?,?";
 				Object params[] = {startIndex, pageSize};
 				List<Book> bookList = runner.query(conn, sql, params, new BeanListHandler<>(Book.class));
-				sql = "select count(*) from book limit ?,?";
-				int totalRecord = ((Long)runner.query(conn, sql, params, new ScalarHandler<>())).intValue();
+				sql = "select count(*) from book";
+				int totalRecord = ((Long)runner.query(conn, sql, new ScalarHandler<>())).intValue();
 				return new QueryResult(totalRecord, bookList);
 			} else {
 				String sql = "select * from book " + where + " limit ?,?";
 				Object params[] = { param, startIndex, pageSize };
 				List<Book> bookList = runner.query(conn, sql, params, new BeanListHandler<>(Book.class));
-				sql = "select count(*) from book " + where + " limit ?,?";
-				int totalRecord = ((Long)runner.query(conn, sql, params, new ScalarHandler<>())).intValue();
+				sql = "select count(*) from book " + where;
+				int totalRecord = ((Long)runner.query(conn, sql, param, new ScalarHandler<>())).intValue();
 				return new QueryResult(totalRecord, bookList);
 			}
 		} catch (Exception e) {

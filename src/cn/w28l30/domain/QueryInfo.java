@@ -2,7 +2,7 @@ package cn.w28l30.domain;
 
 public class QueryInfo {
 	private int startIndex;
-	private int pageSize = 4;
+	private int pageSize = 2;
 	private String Where;
 	private String queryName;
 	private String queryValue;
@@ -34,8 +34,9 @@ public class QueryInfo {
 	public String getWhere() {
 		if (this.queryName == null || this.queryName.trim() == "")
 			return "";
+		this.Where = "where " + queryName + "=?";
 
-		return "where " + queryName + "=?";
+		return Where;
 	}
 
 	public String getQueryName() {
