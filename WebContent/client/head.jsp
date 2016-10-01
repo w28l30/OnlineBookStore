@@ -14,11 +14,11 @@
  	
 <div style="float: right;">
 		<c:if test="${user==null}">
-		<form action="/bookstore/LoginServlet" method="post">
+		<form action="${pageContext.request.contextPath }/LoginServlet" method="post">
  			Username：<input type="text" name="username" style="width: 50px">
  			Password：<input type="password" name="password" style="width: 50px">
  			<input type="submit" value="Login">
- 			<input type="button" value="Register" onclick="javascript:window.location.href='/bookstore/client/register.jsp'">
+ 			<input type="button" value="Register" onclick="javascript:window.location.href='/day22/client/register.jsp'">
 		</form>
 		</c:if>
 		<c:if test="${user!=null}">

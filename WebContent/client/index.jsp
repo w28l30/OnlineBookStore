@@ -98,7 +98,7 @@
   					Total:${pageBean.totalPage } Pages
   					Current Page:${pageBean.currentPage } 
   					<c:forEach var="pagenum" items="${pageBean.pageBar}">
-  						<a href="${pageContext.request.contextPath}/IndexServlet?currentPage=${pagenum }">${pagenum }</a>
+  						<a href="${pageContext.request.contextPath}/IndexServlet?currentPage=${pagenum }&category_id=${param.category_id }">${pagenum }</a>
   					</c:forEach>
   					
   				</div>

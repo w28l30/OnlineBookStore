@@ -47,8 +47,8 @@
     	<li>
     		<a href="#" onclick="test('3')">Order Management
 	    		<div class="dc" id = "dc3">
-	    			<a href="${pageContext.request.contextPath }/OrderServlet?method=getAll&state=false"  target="right">Pending Order</a><br/>
-	    			<a href="${pageContext.request.contextPath }/OrderServlet?method=getAll&state=true"  target="right">Shipped Order</a><br/>
+	    			<a href="${pageContext.request.contextPath }/OrderManageServlet?method=getAll&state=false"  target="right">Pending Order</a><br/>
+	    			<a href="${pageContext.request.contextPath }/OrderManageServlet?method=getAll&state=true"  target="right">Shipped Order</a><br/>
 	    		</div>
     		</a>
     	</li>
